@@ -7,7 +7,7 @@
   // name your instance!
   "title": "NSCOIN EXPLORE",
 
-  "address": "chain.nscoin.us",
+  "address": "207.148.125.47",
 
   // coin name
   "coin": "NSCOIN",
@@ -29,7 +29,7 @@
   "theme": "Cyborg",
 
   // port to listen for requests on.
-  "port" : 80,
+  "port" : 3000,
 
   "tiered" : true,
 
