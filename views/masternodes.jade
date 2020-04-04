@@ -1,0 +1,57 @@
+extends layout
+
+block content   
+  script.
+    $(document).ready(function(){
+      var ctable = $('#masternodelist-table').dataTable( {  
+        autoWidth: true,      
+        searching: false,
+        ordering: false,
+        responsive: true,
+        lengthChange: true,
+        processing: true,
+        ajax: {
+          url: '/ext/masternodelist',
+          dataSrc: function ( json ) {
+            function secondsToHms(n) {
+                n = Number(n);
+                var h = Math.floor(n / 3600);
+                var m = Math.floor(n % 3600 / 60);
+                var s = Math.floor(n % 3600 % 60);
+                var d = Math.floor(((n / 60) / 60) / 24);
+
+                var dDisplay = d >= 1 ? d + (d == 1 ? " day, " : " days, ") : "";
+                var hDisplay = h > 0 ? h + (h == 1 ? " hour, " : " hours, ") : "";
+                var mDisplay = m > 0 ? m + (m == 1 ? " minute, " : " minutes, ") : "";
+                var sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
+                return dDisplay + hDisplay + mDisplay + sDisplay; 
+            }
+            for ( var i=0;i<json.data.length; i++ ) {
+              json.data[i]['activetime'] = secondsToHms(json.data[i]['activetime']);
+            }
+            return json.data;
+          }
+        },
+        columns: [
+          { data: 'rank', width: '10%' },
+          { data: 'addr', width: '20%' },
+          { data: 'txhash', width: '40%' },
+          { data: 'activetime', width:'20%' },
+          { data: 'status', width:'10%' }
+        ]
+      });
+    });
+  .col-md-12(style="margin-bottom: 4%")
+    .row.text-center(style='margin-bottom:15px;')
+    .panel.panel-default
+      .panel-heading
+        strong Masterndoes
+      table#masternodelist-table.table.table-bordered.table-striped
+        thead
+          tr
+            th.text-center Level
+            th.text-center address
+            th.text-center tx hash
+            th.text-center active time
+            th.text-center status
+        tbody.text-center
