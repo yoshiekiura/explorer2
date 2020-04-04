@@ -5,15 +5,15 @@
 */
 {
   // name your instance!
-  "title": "FutureXco",
+  "title": "NSCOIN EXPLORE",
 
-  "address": "chain.futurexco.com",
+  "address": "chain.nscoin.us",
 
   // coin name
-  "coin": "FutureXco",
+  "coin": "NSCOIN",
 
   // coin symbol
-  "symbol": "FTXO",
+  "symbol": "NSC",
 
   // logo
   "logo": "/images/logo.png",
@@ -35,9 +35,9 @@
 
   // database settings (MongoDB)
   "dbsettings": {
-    "user": "explorerdbuser",
-    "password": "explorerPassWord231",
-    "database": "explorerdb",
+    "user": "nscoinadmin",
+    "password": "P3gajahan",
+    "database": "nscoinexplorer",
     "address": "localhost",
     "port": 27017
   },
@@ -49,7 +49,7 @@
   // wallet settings
   "wallet": {
     "host": "localhost",
-    "port": 11221,
+    "port": 85221,
     "user": "nodeforexplorer",
     "pass": "explorerxlient1234"
   },
@@ -92,7 +92,7 @@
   //supported markets: bittrex, poloniex, yobit, empoex, bleutrade, cryptopia, ccex, cryptobridge
   //default market is loaded by default and determines last price in header
   "markets": {
-    "coin": "PHON",
+    "coin": "NSC",
     "exchange": "BTC",
     "enabled": ["cryptobridge"],
     "cryptopia_id": "PHON_BTC",
